@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-canvas: #F7F9F9;
+    --bg-sage: #D8E2DC;
+    --bg-card: #FFFFFF;
+    --text-primary: #1D3557;
+    --text-secondary: #457B9D;
+    --border-calm: #CBD5E1;
+  }
+
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: #F7F9F9;
+    color: #1D3557;
+    direction: rtl;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+  }
+
+  .font-mono-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Sensory-safe transitions only: gentle opacity/transform <= 200ms, no flashing */
+.calm-transition {
+  transition: opacity 180ms cubic-bezier(0.16, 1, 0.3, 1), transform 180ms cubic-bezier(0.16, 1, 0.3, 1), background-color 180ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calm-transition {
+    transition: none !important;
+  }
+}
